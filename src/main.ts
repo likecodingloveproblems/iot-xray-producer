@@ -2,7 +2,8 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
-  app.listen(30000);
+  const app = await NestFactory.createApplicationContext(AppModule);
+  await new Promise(() => {});
+  await app.close();
 }
 bootstrap();
